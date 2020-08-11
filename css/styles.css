@@ -13,6 +13,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(10deg, rgb(150, 238, 204) 0%, rgb(255, 255, 255) 100%);
@@ -80,12 +81,15 @@ section {
 
 .navbar__menu a:link {
     text-decoration: none;
+    color: white;
   }
 .navbar__menu a:visited {
     text-decoration: none;
+    color: white;
   }
 .navbar__menu  a:active {
     text-decoration: underline;
+    color: green
   }
 .navbar__menu ul {
     padding: 2%;
