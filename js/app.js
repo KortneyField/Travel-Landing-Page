@@ -19,14 +19,13 @@
 */
 const allSections = document.getElementsByTagName("section");
 const navigation = document.getElementsByTagName("nav")[0];
+const navList = document.getElementById("navbar__list");
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
-
 
 /**
  * End Helper Functions
@@ -35,7 +34,21 @@ const navigation = document.getElementsByTagName("nav")[0];
 */
 
 // build the nav
+function buildingNav(){
+    for(const section of allSections){
+        console.log(section);
+        const sectionTitle = section.dataset.nav;
+        const node = document.createElement("li"); // Create a <li> node
+        const linkNode = document.createElement("a");
+        const textnode = document.createTextNode(sectionTitle); // Create a text node
+        linkNode.appendChild(textnode);
+        linkNode.href = `#${section.id}`;
+        node.appendChild(linkNode);
+        navList.appendChild(node);
+    }
+}
 
+buildingNav(); 
 
 // Add class 'active' to section when near top of viewport
 
