@@ -10,6 +10,9 @@
 
 
 /* ---- Base Rules ---- */
+html {
+    scroll-behavior: smooth;
+}
 body {
     background: rgb(136,203,171);
     background: linear-gradient(10deg, rgb(150, 238, 204) 0%, rgb(255, 255, 255) 100%);
@@ -66,7 +69,7 @@ main {
 }
 
 section {
-    position: relative;
+
     min-height: 80vh;
 }
 
@@ -78,15 +81,9 @@ section {
 .navbar__menu a:link {
     text-decoration: none;
   }
-  
 .navbar__menu a:visited {
     text-decoration: none;
   }
-  
-.navbar__menu  a:hover {
-    
-  }
-  
 .navbar__menu  a:active {
     text-decoration: underline;
   }
@@ -144,9 +141,9 @@ section {
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
-    padding: 1em;
     text-align: left;
-    display: grid;
+    margin-left: 5em;
+    margin-right: 5em;
     
 }
 
@@ -162,6 +159,7 @@ section:nth-of-type(even) .landing__container {
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
+/*
 section:nth-of-type(odd) .landing__container::before {
     content: '';
     background: rgba(255, 255, 255, 0.187);
@@ -218,7 +216,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
-
+*/
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
@@ -273,11 +271,24 @@ section.your-active-class .landing__container::after {
     background-color: #555;
   }
 
-@media only screen and (min-width: 35em){
+
+@media only screen and (min-width: 45em){
     .landing__container {
         max-width: 50em;
         padding: 4em;
-        
     }
-
 }
+
+@media screen and (max-width: 700px) {
+    .landing__container {
+        padding: 30px 20px;
+    }
+    .navbar__menu ul {
+        padding: 10px 0;
+    }
+    .navbar__menu li {
+        padding: 2;
+    }
+    .navbar__menu li a {
+        font-size: .5em;
+    }
