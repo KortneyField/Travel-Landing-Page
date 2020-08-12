@@ -1,4 +1,13 @@
 
-Project: Landing Page for a Travel Agency 
-Languages: HTML, CSS and JavaScript
-Institution: Udacity 
+# Project:
+- Landing Page for a Travel Agency 
+# Languages: 
+- HTML
+- CSS
+- JavaScript
+# Institution: 
+- Udacity 
+# Features 
+- Dynamic navigation 
+- Active state 
+- Scrolling effect 
