@@ -22,6 +22,12 @@ function buildingNav(){
 }
 buildingNav(); 
 
+function myFunction() {
+  var elmnt = document.getElementById();
+  elmnt.scrollIntoView({ behavior: 'smooth', block: 'end'});
+}
+
+
 
 //EVENT LISTENERS
 const pageClicked = document.querySelector('body');
@@ -43,3 +49,6 @@ function backToTop() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+
+//SCROLL TO FUNCTION
