@@ -81,6 +81,7 @@ section {
     text-decoration: none;
     color: white;
   }
+
 .navbar__menu a:visited {
     text-decoration: none;
     color: white;
@@ -253,6 +254,9 @@ section.your-active-class .landing__container::after {
 }
 
 /*SCROLL BACK UP BUTTON*/
+
+
+  
 #scrollTopButton {
     display: none;
     position: fixed;
