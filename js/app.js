@@ -4,7 +4,7 @@ const navigation = document.getElementsByTagName("nav")[0];
 const navList = document.getElementById("navbar__list");
 const list = document.getElementsByTagName("li");
 
-console.log(list);
+//console.log(list);
 
 // BUILDING THE NAVIGATION FUNCTION
 function buildingNav(){
@@ -21,7 +21,7 @@ function buildingNav(){
         linkNode.appendChild(textnode);
         //added the id and named it
         node.id = sectionTitle; 
-        //node.className = "activeState"
+        node.className = "navBar_list"
         //linkNode.href = "#"; 
         //combined the list node to the navigation bar.
         node.appendChild(linkNode)
@@ -87,18 +87,49 @@ let isInView = function (section) {
 );
 };
 
+
+//SECTIONS EVENTS
 function activeSection (currentSection){
-  currentSection.classList.add('active');
+  currentSection.classList.add('your-active-class');
+  
+  deactiveNavigationLinks();
+  activeNavigation (currentSection);
+};
+
+function deactivateSections () {
+  for(const section of allSections){
+    section.classList.remove("your-active-class")
+  }
+};
+
+function activeNavigation (currentSection) {
+  let grabNavList = document.querySelectorAll('li'); 
+  //console.log(grabNavList)
+  for (const list of grabNavList) {
+    //console.log(list.id)
+    if (list.getAttribute('id')==currentSection.dataset.nav)  {
+      list.classList.add('activeState');
+    }
+  }
+} 
+
+function deactiveNavigationLinks () {
+  let grabNavList = document.querySelectorAll('li');
+  for (const list of grabNavList) {
+    list.classList.remove('activeState');
+  }
 }
 
+//NAVIGATION EVENTS
 
 
 window.addEventListener('scroll', function (event) {
   for(const section of allSections){
       //console.log(element);
       if (isInView(section)) {
-        //deactivateSections();
+        deactivateSections();
         activeSection(section);
+        
         console.log('In viewport!');
       } else if(window.scrollY==0) {
         //deactivateSections();
