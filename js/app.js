@@ -26,24 +26,24 @@ function buildingNav(){
         //combined the list node to the navigation bar.
         node.appendChild(linkNode)
         navList.appendChild(node);
-        section.className ="your-active-class-hvr"
+        //section.className ="your-active-class-hvr"
 
-        //SCROLL SMOOTHLY FUNCTION INSIDE THE buildNav() FUNCTION AND SHOW ACTIVE STATE. 
+        //SCROLL SMOOTHLY FUNCTION INSIDE THE buildNav(). 
         linkNode.addEventListener("click", function() {
           console.log(`the ${sectionTitle} button was clicked`);
           document.getElementById(section.id).scrollIntoView({behavior: "smooth"});
           
           //GRABBING THE PRESENT ACTIVE STATE CLASS
-          var element = document.getElementsByClassName("activeState");
-          console.log(element); 
+          //var element = document.getElementsByClassName("activeState");
+          //console.log(element); 
           
           //**NEED TO SWITCH IT OFF WITH NOT ACTIVE.
           //element.classList.remove("activeState");
           //console.log(element);
           
           //SWITCHING CURRENT CLASS TO ACTIVE. 
-          node.className = "activeState"
-          section.className ="your-active-class"
+          //node.className = "activeState"
+          //section.className ="your-active-class"
           }
         );
     }
@@ -76,10 +76,34 @@ function backToTop() {
 }
 
 // ACTIVE VIEW STATE 
-function toggleActiveClasses(section) {
-  document.querySelector('.your-active-class').classList.remove('your-active-class');
-  //document.querySelector('.menu__link__active').classList.remove('menu__link__active');
-  //section.classList.add('your-active-class');
-  //document.querySelector(`[data-scroll="${section.getAttribute('id')}"]`).classList.add('menu__link__active');
+let isInView = function (section) {
+  let distance = section.getBoundingClientRect();
+  //console.log(section);
+  return (
+    distance.top >= 0 &&
+    distance.left >= 0 &&
+    distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+);
+};
+
+function activeSection (currentSection){
+  currentSection.classList.add('active');
 }
 
+
+
+window.addEventListener('scroll', function (event) {
+  for(const section of allSections){
+      //console.log(element);
+      if (isInView(section)) {
+        //deactivateSections();
+        activeSection(section);
+        console.log('In viewport!');
+      } else if(window.scrollY==0) {
+        //deactivateSections();
+        //deactivateNavLinks();
+        console.log('Not in Viewport');
+      } //false);
+  }
+});
